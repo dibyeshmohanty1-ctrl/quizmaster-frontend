@@ -9,8 +9,8 @@ import StudentDashboard from "../pages/Student/Dashboard";
 import QuizPage from "../pages/Quiz/QuizPage";
 import ResultPage from "../pages/Quiz/ResultPage";
 import Analytics from "../pages/Admin/Analytics";
-import Settings from "../pages/Admin/Settings";
-import Profile from "../pages/Student/Profile";
+import Settings from "../pages/Admin/settings";
+import Profile from "../pages/Student/profile";
 
 export default function AppRoutes() {
   return (
@@ -29,8 +29,8 @@ export default function AppRoutes() {
 
       <Route path="/result" element={<ResultPage />} />
       <Route path="/analytics" element={<Analytics />} />
-       <Route path="/settings" element={<Settings />} />
-       <Route path="/profile" element={<Profile />} />
+       <Route path="/settings" element={<settings />} />
+       <Route path="/profile" element={<profile />} />
     </Routes>
   );
 }
