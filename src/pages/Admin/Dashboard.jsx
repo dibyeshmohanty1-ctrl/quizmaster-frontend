@@ -38,7 +38,7 @@ export default function AdminDashboard() {
   </li>
 
   <li>
-  <Link to="/createquiz">
+  <Link to="/CreateQuiz">
     <FaClipboardList /> Create Quiz
   </Link>
 </li>
