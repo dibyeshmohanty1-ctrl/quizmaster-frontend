@@ -38,6 +38,12 @@ export default function AdminDashboard() {
   </li>
 
   <li>
+  <Link to="/createquiz">
+    <FaClipboardList /> Create Quiz
+  </Link>
+</li>
+
+  <li>
     <Link to="/quiz">
       <FaClipboardList /> Quiz
     </Link>
@@ -61,7 +67,7 @@ export default function AdminDashboard() {
     </Link>
   </li>
 </ul>
-</aside>.
+</aside>
 
       <main className="admin-content">
         <motion.div
