@@ -29,8 +29,8 @@ export default function AppRoutes() {
 
       <Route path="/result" element={<ResultPage />} />
       <Route path="/analytics" element={<Analytics />} />
-       <Route path="/settings" element={<settings />} />
-       <Route path="/profile" element={<profile />} />
+       <Route path="/Settings" element={<settings />} />
+       <Route path="/Profile" element={<profile />} />
     </Routes>
   );
 }
