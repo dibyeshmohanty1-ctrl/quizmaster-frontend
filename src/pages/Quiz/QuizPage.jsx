@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import api from "../../services/api";
 import "./Quiz.css";
 
 export default function QuizPage() {
+  const navigate = useNavigate();
   useEffect(() => {
   api.get("/quizzes/")
     .then((res) => {
