@@ -66,7 +66,7 @@ export default function QuizPage() {
 
   <button
     className="next-btn"
-    onClick={() => window.location.href = "/result"}
+   onClick={() => navigate("/result")}
   >
     Submit Quiz
   </button>
