@@ -11,7 +11,7 @@ import ResultPage from "../pages/Quiz/ResultPage";
 import Analytics from "../pages/Admin/Analytics";
 import Settings from "../pages/Admin/settings";
 import Profile from "../pages/Student/profile";
-import CreateQuiz from "../pages/Admin/createQuiz";
+import CreateQuiz from "../pages/Admin/CreateQuiz";
 
 export default function AppRoutes() {
   return (
@@ -32,7 +32,7 @@ export default function AppRoutes() {
       <Route path="/analytics" element={<Analytics />} />
        <Route path="/settings" element={<Settings />} />
        <Route path="/profile" element={<Profile />} />
-      <Route path="/createquiz" element={<CreateQuiz />} />
+      <Route path="/createQuiz" element={<CreateQuiz />} />
     </Routes>
   );
 }
