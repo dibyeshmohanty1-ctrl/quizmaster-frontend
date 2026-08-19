@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../../services/api";
 import "./Auth.css";
 
 export default function Login() {
+
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post(
+        "/auth/login/",
+        {
+          username,
+          password,
+        }
+      );
+
+      localStorage.setItem(
+        "access",
+        response.data.access
+      );
+
+      localStorage.setItem(
+        "refresh",
+        response.data.refresh
+      );
+
+      alert("Login Successful");
+
+      navigate("/student");
+
+    } catch (error) {
+      console.error(error);
+      alert("Invalid Username or Password");
+    }
+  };
+
   return (
     <div className="auth-page">
 
@@ -16,21 +55,30 @@ export default function Login() {
         <h1>Welcome Back</h1>
         <p>Login to continue your quiz journey</p>
 
-        <form>
+        <form onSubmit={handleLogin}>
+
           <input
-            type="email"
-            placeholder="Email Address"
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) =>
+              setUsername(e.target.value)
+            }
           />
 
           <input
             type="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
           />
-         <Link to="/student">
-  <button type="button">
-    Login
-  </button>
-</Link>
+
+          <button type="submit">
+            Login
+          </button>
+
         </form>
 
         <div className="auth-links">
@@ -42,6 +90,7 @@ export default function Login() {
             Register
           </Link>
         </div>
+
       </motion.div>
 
     </div>
