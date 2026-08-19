@@ -6,16 +6,23 @@ export default function CreateQuiz() {
   const [optionB, setOptionB] = useState("");
   const [optionC, setOptionC] = useState("");
   const [optionD, setOptionD] = useState("");
+  const [correctAnswer, setCorrectAnswer] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const quizData = {
       question,
-      options: [optionA, optionB, optionC, optionD],
+      optionA,
+      optionB,
+      optionC,
+      optionD,
+      correctAnswer,
     };
 
     console.log("Quiz Created:", quizData);
+
+    localStorage.setItem("quiz", JSON.stringify(quizData));
 
     alert("Quiz Created Successfully!");
 
@@ -24,6 +31,7 @@ export default function CreateQuiz() {
     setOptionB("");
     setOptionC("");
     setOptionD("");
+    setCorrectAnswer("");
   };
 
   return (
@@ -99,6 +107,15 @@ export default function CreateQuiz() {
             placeholder="Option D"
             value={optionD}
             onChange={(e) => setOptionD(e.target.value)}
+            style={inputStyle}
+            required
+          />
+
+          <input
+            type="text"
+            placeholder="Correct Answer (A/B/C/D)"
+            value={correctAnswer}
+            onChange={(e) => setCorrectAnswer(e.target.value)}
             style={inputStyle}
             required
           />
